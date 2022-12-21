@@ -18,7 +18,9 @@ export class EditArticleService {
   ): Observable<ArticleInterface> {
     const fullUrl = `${environment.apiUrl}/articles/${slug}`
     return this.http
-      .put<SaveArticleResponseInterface>(fullUrl, articleInput)
+      .put<SaveArticleResponseInterface>(fullUrl, {
+        article: { ...articleInput },
+      })
       .pipe(
         map((response: SaveArticleResponseInterface) => {
           return response.article
