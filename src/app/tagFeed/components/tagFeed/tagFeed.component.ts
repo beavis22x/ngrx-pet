@@ -13,7 +13,7 @@ export class TagFeedComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.tagName = this.route.snapshot.paramMap.get('slug')
+    this.tagName = this.route.snapshot.paramMap.get('slug') as string
     this.apiUrl = `/articles?tag=${this.tagName}`
   }
 }
